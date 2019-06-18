@@ -72,7 +72,7 @@ The region of interest is determined by the shape of the lanes in the images. Th
 
 #### Step 6 - Find lines using hough transform
 
-For finding lines, the probabilistic hough transform function `cv2.HoughLinesP(img, rho, theta, threshold, np.array([]), minLineLength=min_line_len, maxLineGap=max_line_gap)` is used. This function returns the extremes of the detected lines (instead of $\theta$ and $\rho$ using the standard hough transform function `cv2.HoughLines()`)[OpenCV Documentation](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_houghlines/py_houghlines.html). The relevant parameters are set by trial and error. 
+For finding lines, the probabilistic hough transform function `cv2.HoughLinesP(img, rho, theta, threshold, np.array([]), minLineLength=min_line_len, maxLineGap=max_line_gap)` is used. This function returns the extremes of the detected lines (instead of $\theta$ and $\rho$ using the standard hough transform function `cv2.HoughLines()`)[\[OpenCV Documentation\]](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_houghlines/py_houghlines.html). The relevant parameters are set by trial and error. 
 
 ![Hough transformed image](./test_images_output/solidWhiteRight_hough.jpg)
 

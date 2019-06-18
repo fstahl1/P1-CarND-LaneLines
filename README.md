@@ -84,14 +84,14 @@ The function `avg_extrapol(lines)` draws one single line on the left and one on 
 ![Final image](./test_images_output/solidWhiteRight_final_image.jpg)
 
 
-### 2. Shortcomings with current pipeline
+### Shortcomings with current pipeline
 
 * Only straight lines are detected with the applied hough transform -> curved lanes cannot be detected as curves
 * Only intensity is considered using grayscale images -> colored lines are not detected under challenging light conditions
 * Lines are jittering (not smooth over time)
 
 
-### 3. Possible pipeline improvements
+### Possible pipeline improvements
 
 * Use of higher degree polynomials for lane fitting to detect curves
 * Use of a different color space for better performance (e.g. better detection of yellow lines)

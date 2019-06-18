@@ -3,20 +3,19 @@
 
 ## Writeup template
 
-### Gifs of final videos
+---
+
+### Results
+
+Lanes in the two provided clips are reliably detected.
+
+![solidWhiteRight_gif](./test_videos_output/solidWhiteRight.gif)
+
+![solidYellowLeft_gif](./test_videos_output/solidYellowLeft.gif)
 
 
-### Imported modules
+---
 
-The following python modules were used:
-
-```
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
-import numpy as np
-import cv2
-import os
-```
 
 ### Pipeline overview 
 
@@ -85,17 +84,18 @@ In order to draw one single line on the left and one on the right lane, the func
 ![Final image](./test_images_output/solidWhiteRight_final_image.jpg)
 
 
-
 ### 2. Identify potential shortcomings with your current pipeline
 
-
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
+* Only straight lines are detected with the applied hough transform -> curved lanes cannot be detected as curves
+* Only intensity is considered using grayscale images -> Problem detecting colored lines under challenging light conditions
+* Lines are jittering (not smooth over time)
 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+* Use of higher degree polynomials to fit the lanes for curve detection
+* A different color space could be used for better performance (e.g. better detection of yellow lines)
+* Use of lane history for smoother lanes and avoidance of frames without detected lines
+* Parameter tuning could be improved (with a GUI for example)
 
-Another potential improvement could be to ...
+

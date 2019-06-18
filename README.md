@@ -29,8 +29,10 @@ My pipeline consists of the following steps:
 * Step 6 - Find lines using hough transform
 * Step 7 - Separate lines into left and right, average and extrapolate them
 
+---
 
 ### Pipeline details
+
 
 #### Step 1 - Load color image
 
@@ -70,7 +72,7 @@ The region of interest is determined by the shape of the lanes in the images. Th
 
 #### Step 6 - Find lines using hough transform
 
-For finding lines, the probabilistic hough transform function `cv2.HoughLinesP(img, rho, theta, threshold, np.array([]), minLineLength=min_line_len, maxLineGap=max_line_gap)` is used. This function returns the extremes of the detected lines (instead of $\theta$ and $\rho$ using the standard hough transform function `cv2.HoughLines()`). The relevant parameters are set by trial and error. 
+For finding lines, the probabilistic hough transform function `cv2.HoughLinesP(img, rho, theta, threshold, np.array([]), minLineLength=min_line_len, maxLineGap=max_line_gap)` is used. This function returns the extremes of the detected lines (instead of $\theta$ and $\rho$ using the standard hough transform function `cv2.HoughLines()`)[OpenCV Documentation](https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_imgproc/py_houghlines/py_houghlines.html). The relevant parameters are set by trial and error. 
 
 ![Hough transformed image](./test_images_output/solidWhiteRight_hough.jpg)
 
@@ -83,6 +85,19 @@ The function `avg_extrapol(lines)` draws one single line on the left and one on 
 
 ![Final image](./test_images_output/solidWhiteRight_final_image.jpg)
 
+#### Imported modules
+
+```
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import numpy as np
+import cv2
+import os
+from moviepy.editor import VideoFileClip
+from IPython.display import HTML
+```
+
+---
 
 ### Shortcomings with current pipeline
 
@@ -90,6 +105,7 @@ The function `avg_extrapol(lines)` draws one single line on the left and one on 
 * Only intensity is considered using grayscale images -> colored lines are not detected under challenging light conditions
 * Lines are jittering (not smooth over time)
 
+---
 
 ### Possible pipeline improvements
 
